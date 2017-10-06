@@ -16,14 +16,12 @@ if (isset($_GET['cmd']) === true) {
       'port'   => 6379,
     ]);
 
-
     $client->set($_GET['key'], $_GET['value']);
     print('{"message": "Updated"}');
   } else {
-    $host = 'redis-slave';
     $client = new Predis\Client([
       'scheme' => 'tcp',
-      'host'   => $host,
+      'host'   => 'redis-slave',
       'port'   => 6379,
     ]);
 
